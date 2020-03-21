@@ -1,0 +1,97 @@
+html, body, ul, ol, li, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+html, body {
+    font-family: serif;
+    height: 100%;
+    background: #F7F6F9;
+    min-width: 375px;
+    font-size: 16px;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.upload-file {
+    height: 100%;
+    padding: 0 1.25rem;
+}
+
+.upload-file > h3 {
+    padding: 1.25rem 0;
+}
+
+.upload-file > div > .upload-title {
+    float: right;
+    padding: 0 10px;
+    margin-top: -0.25rem;
+    line-height: 1.75rem;
+    text-align: center;
+    background: #ffffff;
+    border: 0.0625rem solid #000;
+    position: relative;
+}
+
+.upload-file > div > .upload-title > input {
+    height: 0.125rem;
+    width: 0.125rem;
+    outline: none;
+    border: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.upload-file > div > .upload-title > label {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    font-weight: 100;
+}
+
+.upload-file > table {
+    width: 100%;
+    margin-top: 0.75rem;
+    border-collapse: collapse;
+}
+
+.upload-file > table tr {
+    text-align: center;
+    border-bottom: 0.125rem dashed #ccc;
+}
+
+.upload-file > table th {
+    padding: 0.625rem 0;
+}
+
+.upload-file > table td {
+    padding: 0.625rem 0;
+}
+
+.upload-file > table .td-file-name {
+    text-align: left;
+}
+
+.upload-file > table .upload_file_name {
+    width: 50px;
+}
+
+.upload-file > table .upload_file_size {
+    width: 15%;
+}
+
+.upload-file > table .upload_file_status {
+    width: 15%;
+}
+
+#file {
+    display: none;
+}
