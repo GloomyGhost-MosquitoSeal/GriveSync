@@ -12,8 +12,7 @@
     <h3 id='h3_title'>Grive Sync Server</h3>
     <div>
         <div class="upload-title">
-            <form id="input-upload" class="label_upload_file" action="upload.php" method="post"
-                  enctype="multipart/form-data">
+            <form id="input-upload" class="label_upload_file" action="upload.php" method="post" enctype="multipart/form-data">
                 <label for="file">上传文件</label>
                 <input type="file" onchange="this.form.submit()" name="file" id='file'/>
             </form>
@@ -24,11 +23,19 @@
         <tr>
             <th id="upload_file_name" class="td-file-name upload_file_name">文件名称</th>
             <th id="upload_file_size" class="upload_file_size">大小</th>
-            <th id="upload_file_status" class="upload_file_status">下载</th>
+            <th id="upload_file_status" class="upload_file_download">下载</th>
+            <th id="upload_file_status" class="upload_file_delete">删除</th>
         </tr>
         </thead>
         <tbody>
         <?php
+        function mkdirs($dir, $mode = 0777){
+            if (is_dir($dir) || @mkdir($dir, $mode)) return TRUE;
+            if (!mkdirs(dirname($dir), $mode)) return FALSE;
+            return @mkdir($dir, $mode);
+        }
+
+        mkdirs('upload');
         $resource = opendir('upload');
         while ($rows = readdir($resource)) {
             if ($rows == "." || $rows == "..") {
@@ -38,6 +45,7 @@
             echo '<td class="td-file-name">' . $rows . '</td>';
             echo '<td>' . round(filesize('upload/' . $rows) / (1024 * 1024), 4) . 'MB</td>';
             echo '<td><a href="download.php?file=upload/' . $rows . '&filename=' . $rows . '">下载</a></td>';
+            echo '<td><a href="delete.php?file=upload/' . $rows . '&filename=' . $rows . '">删除</a></td>';
             echo '</tr>';
         }
         ?>
