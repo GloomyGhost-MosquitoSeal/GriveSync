@@ -16,3 +16,5 @@ if (!unlink($file)){
 }else{
   echo ("$file: 删除完成，正在回到主页面");
 }
+
+
